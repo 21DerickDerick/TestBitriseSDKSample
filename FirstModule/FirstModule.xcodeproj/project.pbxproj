@@ -168,7 +168,6 @@
 				8FA4F5BB267AED3E00CDCCDB /* Sources */,
 				8FA4F5BC267AED3E00CDCCDB /* Frameworks */,
 				8FA4F5BD267AED3E00CDCCDB /* Resources */,
-				8F51694C269FD256005BE81C /* ShellScript */,
 				8F221B71269FDA3D00F972CF /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -252,26 +251,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		8F51694C269FD256005BE81C /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "function archiveForiOSDevice {\n    xcodebuild clean archive \\\n    -scheme FirstModule \\\n    -sdk iphoneos \\\n    -archivePath \"archives/ios_devices.xcarchive\" \\\n    BUILD_LIBRARY_FOR_DISTRIBUTION=YES \\\n    SKIP_INSTALL=NO\n}\n\nfunction archiveForiOSSimulator {\n    xcodebuild clean archive \\\n    -scheme FirstModule \\\n    -sdk iphonesimulator \\\n    -archivePath \"archives/ios_simulators.xcarchive\" \\\n    BUILD_LIBRARY_FOR_DISTRIBUTION=YES \\\n    SKIP_INSTALL=NO\n}\n\nfunction createFramework {\n    xcodebuild -create-xcframework \\\n    -framework archives/ios_devices.xcarchive/Products/Library/Frameworks/FirstModule.framework \\\n    -framework archives/ios_simulators.xcarchive/Products/Library/Frameworks/FirstModule.framework \\\n    -output build/FirstModule.xcframework\n}\n\narchiveForiOSDevice\narchiveForiOSSimulator\ncreateFramework\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8FA4F5BB267AED3E00CDCCDB /* Sources */ = {
