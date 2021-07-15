@@ -1,0 +1,11 @@
+framework module FirstModule {
+  umbrella header "FirstModule.h"
+
+  export *
+  module * { export * }
+}
+
+module FirstModule.Swift {
+    header "FirstModule-Swift.h"
+    requires objc
+}
