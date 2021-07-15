@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8F516948269FD09F005BE81C /* SharedModule.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F516945269FD099005BE81C /* SharedModule.xcframework */; platformFilter = ios; };
-		8F516949269FD09F005BE81C /* SharedModule.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8F516945269FD099005BE81C /* SharedModule.xcframework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8F221B6F269FDA3D00F972CF /* SharedModule.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F516945269FD099005BE81C /* SharedModule.xcframework */; platformFilter = ios; };
+		8F221B70269FDA3D00F972CF /* SharedModule.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8F516945269FD099005BE81C /* SharedModule.xcframework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8FA4F5C9267AED3E00CDCCDB /* FirstModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FA4F5BF267AED3E00CDCCDB /* FirstModule.framework */; };
 		8FA4F5CE267AED3E00CDCCDB /* FirstModuleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA4F5CD267AED3E00CDCCDB /* FirstModuleTests.swift */; };
 		8FA4F5D0267AED3E00CDCCDB /* FirstModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FA4F5C2267AED3E00CDCCDB /* FirstModule.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -28,13 +28,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		8F516942269FD08D005BE81C /* Embed Frameworks */ = {
+		8F221B71269FDA3D00F972CF /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				8F516949269FD09F005BE81C /* SharedModule.xcframework in Embed Frameworks */,
+				8F221B70269FDA3D00F972CF /* SharedModule.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -59,7 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8F516948269FD09F005BE81C /* SharedModule.xcframework in Frameworks */,
+				8F221B6F269FDA3D00F972CF /* SharedModule.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,7 +168,8 @@
 				8FA4F5BB267AED3E00CDCCDB /* Sources */,
 				8FA4F5BC267AED3E00CDCCDB /* Frameworks */,
 				8FA4F5BD267AED3E00CDCCDB /* Resources */,
-				8F516942269FD08D005BE81C /* Embed Frameworks */,
+				8F51694C269FD256005BE81C /* ShellScript */,
+				8F221B71269FDA3D00F972CF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -204,7 +205,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1220;
-				LastUpgradeCheck = 1220;
+				LastUpgradeCheck = 1240;
 				TargetAttributes = {
 					8FA4F5BE267AED3E00CDCCDB = {
 						CreatedOnToolsVersion = 12.2;
@@ -251,6 +252,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8F51694C269FD256005BE81C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "function archiveForiOSDevice {\n    xcodebuild clean archive \\\n    -scheme FirstModule \\\n    -sdk iphoneos \\\n    -archivePath \"archives/ios_devices.xcarchive\" \\\n    BUILD_LIBRARY_FOR_DISTRIBUTION=YES \\\n    SKIP_INSTALL=NO\n}\n\nfunction archiveForiOSSimulator {\n    xcodebuild clean archive \\\n    -scheme FirstModule \\\n    -sdk iphonesimulator \\\n    -archivePath \"archives/ios_simulators.xcarchive\" \\\n    BUILD_LIBRARY_FOR_DISTRIBUTION=YES \\\n    SKIP_INSTALL=NO\n}\n\nfunction createFramework {\n    xcodebuild -create-xcframework \\\n    -framework archives/ios_devices.xcarchive/Products/Library/Frameworks/FirstModule.framework \\\n    -framework archives/ios_simulators.xcarchive/Products/Library/Frameworks/FirstModule.framework \\\n    -output build/FirstModule.xcframework\n}\n\narchiveForiOSDevice\narchiveForiOSSimulator\ncreateFramework\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8FA4F5BB267AED3E00CDCCDB /* Sources */ = {
@@ -407,9 +428,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = YMGP992CD8;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -424,7 +446,10 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.derick.FirstModule;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -435,9 +460,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = YMGP992CD8;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -452,7 +478,10 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.derick.FirstModule;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
