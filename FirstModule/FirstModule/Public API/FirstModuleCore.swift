@@ -6,7 +6,6 @@
 //
 
 import UIKit
-@_implementationOnly import SharedModule
 
 @objc public class FirstModuleCore: NSObject {
     
