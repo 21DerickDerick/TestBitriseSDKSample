@@ -27,19 +27,19 @@ import UIKit
     
 }
 
-//extension UIApplication {
-//    func getTopViewController() -> UIViewController? {
-//        //UIApplication.shared.windows.filter {$0.isKeyWindow}.first
-//        if let rootViewController = self.keyWindow?.rootViewController {
-//            var topViewController: UIViewController = rootViewController
-//
-//            while let presentedViewController = topViewController.presentedViewController {
-//                topViewController = presentedViewController
-//            }
-//
-//            return topViewController
-//        } else {
-//            return nil
-//        }
-//    }
-//}
+extension UIApplication {
+    func getTopViewController() -> UIViewController? {
+        //UIApplication.shared.windows.filter {$0.isKeyWindow}.first
+        if let rootViewController = self.keyWindow?.rootViewController {
+            var topViewController: UIViewController = rootViewController
+
+            while let presentedViewController = topViewController.presentedViewController {
+                topViewController = presentedViewController
+            }
+
+            return topViewController
+        } else {
+            return nil
+        }
+    }
+}

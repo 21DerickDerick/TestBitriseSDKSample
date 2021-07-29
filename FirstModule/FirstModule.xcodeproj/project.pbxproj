@@ -3,12 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8F221B6F269FDA3D00F972CF /* SharedModule.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F516945269FD099005BE81C /* SharedModule.xcframework */; platformFilter = ios; };
-		8F221B70269FDA3D00F972CF /* SharedModule.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8F516945269FD099005BE81C /* SharedModule.xcframework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8FA4F5C9267AED3E00CDCCDB /* FirstModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FA4F5BF267AED3E00CDCCDB /* FirstModule.framework */; };
 		8FA4F5CE267AED3E00CDCCDB /* FirstModuleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA4F5CD267AED3E00CDCCDB /* FirstModuleTests.swift */; };
 		8FA4F5D0267AED3E00CDCCDB /* FirstModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FA4F5C2267AED3E00CDCCDB /* FirstModule.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -27,22 +25,7 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		8F221B71269FDA3D00F972CF /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				8F221B70269FDA3D00F972CF /* SharedModule.xcframework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		8F516945269FD099005BE81C /* SharedModule.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = SharedModule.xcframework; sourceTree = "<group>"; };
 		8FA4F5BF267AED3E00CDCCDB /* FirstModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FirstModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FA4F5C2267AED3E00CDCCDB /* FirstModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstModule.h; sourceTree = "<group>"; };
 		8FA4F5C3267AED3E00CDCCDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -59,7 +42,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8F221B6F269FDA3D00F972CF /* SharedModule.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,7 +123,6 @@
 		8FB67D36268DBEE60024519E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8F516945269FD099005BE81C /* SharedModule.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -168,7 +149,6 @@
 				8FA4F5BB267AED3E00CDCCDB /* Sources */,
 				8FA4F5BC267AED3E00CDCCDB /* Frameworks */,
 				8FA4F5BD267AED3E00CDCCDB /* Resources */,
-				8F221B71269FDA3D00F972CF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
