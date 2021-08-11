@@ -21,6 +21,10 @@ class FirstModuleTests: XCTestCase {
     func testExample() throws {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+
+        let firstModule = FirstModuleCore()
+        let result = firstModule.addOneToNumber(num: 1)
+        XCTAssert(result == 2)
     }
 
     func testPerformanceExample() throws {

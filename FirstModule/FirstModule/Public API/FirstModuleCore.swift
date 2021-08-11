@@ -23,6 +23,10 @@ import UIKit
             
         }
     }
+
+    @objc public func addOneToNumber(num: Int) -> Int {
+        return num + 1
+    }
     
 }
 
