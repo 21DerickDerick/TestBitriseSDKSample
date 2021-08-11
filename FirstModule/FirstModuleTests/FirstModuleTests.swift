@@ -27,6 +27,12 @@ class FirstModuleTests: XCTestCase {
         XCTAssert(result == 2)
     }
 
+    func testWillFail() throws {
+        let firstModule = FirstModuleCore()
+        let result = firstModule.addOneToNumber(num: 1)
+        XCTAssert(result == 10)
+    }
+
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
         self.measure {
