@@ -7,6 +7,7 @@ import UIKit
 @_inheritsConvenienceInitializers @objc public class FirstModuleCore : ObjectiveC.NSObject {
   @objc public func testHaha()
   @objc public func openFirstModuleStoryboard()
+  @objc public func addOneToNumber(num: Swift.Int) -> Swift.Int
   @objc deinit
   @objc override dynamic public init()
 }

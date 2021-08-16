@@ -211,6 +211,7 @@ SWIFT_CLASS("_TtC11FirstModule15FirstModuleCore")
 @interface FirstModuleCore : NSObject
 - (void)testHaha;
 - (void)openFirstModuleStoryboard;
+- (NSInteger)addOneToNumberWithNum:(NSInteger)num SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
